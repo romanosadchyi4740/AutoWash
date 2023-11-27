@@ -29,6 +29,8 @@
     <ClCompile Include="addService.cpp" />
     <ClCompile Include="calculateWorkerSalary.cpp" />
     <ClCompile Include="mainWindow.cpp" />
+    <ClCompile Include="ServiceType.cpp" />
+    <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addService.h">
@@ -40,6 +42,10 @@
     <ClInclude Include="mainWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Service.h" />
+    <ClInclude Include="ServiceType.h" />
+    <ClInclude Include="Worker.h" />
+    <ClInclude Include="Workers.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="addService.resx">

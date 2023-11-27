@@ -1,4 +1,8 @@
 #pragma once
+#include "Workers.h"
+
+extern std::vector<Worker> Workers;
+
 
 namespace AutoWash {
 
@@ -38,7 +42,8 @@ namespace AutoWash {
 	protected:
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ ChooseWorker;
+
 	private: System::Windows::Forms::Label^ label2;
 
 	private:
@@ -57,7 +62,7 @@ namespace AutoWash {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->ChooseWorker = (gcnew System::Windows::Forms::ComboBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
@@ -66,10 +71,9 @@ namespace AutoWash {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(47, 36);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Location = System::Drawing::Point(35, 29);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(274, 29);
+			this->label4->Size = System::Drawing::Size(213, 24);
 			this->label4->TabIndex = 16;
 			this->label4->Text = L"Обчислити зарплату";
 			// 
@@ -79,10 +83,9 @@ namespace AutoWash {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(108, 234);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Location = System::Drawing::Point(81, 190);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(161, 48);
+			this->button1->Size = System::Drawing::Size(121, 39);
 			this->button1->TabIndex = 15;
 			this->button1->Text = L"Обчислити";
 			this->button1->UseVisualStyleBackColor = false;
@@ -92,54 +95,56 @@ namespace AutoWash {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(131, 95);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(98, 77);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(105, 25);
+			this->label1->Size = System::Drawing::Size(86, 20);
 			this->label1->TabIndex = 10;
 			this->label1->Text = L"Працівник";
 			// 
-			// comboBox1
+			// ChooseWorker
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(108, 123);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(160, 24);
-			this->comboBox1->TabIndex = 9;
+			this->ChooseWorker->FormattingEnabled = true;
+			this->ChooseWorker->Location = System::Drawing::Point(81, 100);
+			this->ChooseWorker->Name = L"ChooseWorker";
+			this->ChooseWorker->Size = System::Drawing::Size(121, 21);
+			this->ChooseWorker->TabIndex = 9;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(103, 180);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(77, 146);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(107, 25);
+			this->label2->Size = System::Drawing::Size(88, 20);
 			this->label2->TabIndex = 17;
 			this->label2->Text = L"Зарплата:";
 			// 
 			// CalculateWorkerSalary
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(379, 295);
+			this->ClientSize = System::Drawing::Size(284, 240);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->comboBox1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Controls->Add(this->ChooseWorker);
 			this->Name = L"CalculateWorkerSalary";
 			this->Text = L"CarWash";
+			this->Load += gcnew System::EventHandler(this, &CalculateWorkerSalary::CalculateWorkerSalary_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-	};
+	private: System::Void CalculateWorkerSalary_Load(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < Workers.size(); i++) {
+			ChooseWorker->Items->Add(gcnew System::String(Workers[i].GetName().c_str()));
+		}
+	}
+};
 }
