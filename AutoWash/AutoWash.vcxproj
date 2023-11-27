@@ -30,7 +30,10 @@
     <ClCompile Include="calculateWorkerSalary.cpp" />
     <ClCompile Include="mainWindow.cpp" />
     <ClCompile Include="ServiceType.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Worker.cpp" />
+=======
+>>>>>>> bc29a54c5c66eb1025c15033e70e68f206523bd6
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addService.h">
@@ -44,8 +47,11 @@
     </ClInclude>
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceType.h" />
+<<<<<<< HEAD
     <ClInclude Include="Worker.h" />
     <ClInclude Include="Workers.h" />
+=======
+>>>>>>> bc29a54c5c66eb1025c15033e70e68f206523bd6
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="addService.resx">
