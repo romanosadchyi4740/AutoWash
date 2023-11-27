@@ -1,2 +1,15 @@
-﻿  addService.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-LINK : fatal error LNK1561: entry point must be defined
+﻿  addService.cpp
+  calculateWorkerSalary.cpp
+  mainWindow.cpp
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(157,14): error C2065: 'Bouquet': undeclared identifier
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(159,11): error C2061: syntax error: identifier 'ExceptionFileOpen'
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(159,4): error C2310: catch handlers must specify one type
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(164,12): error C2065: 'Bouquet': undeclared identifier
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(164,1): error C2541: 'delete': cannot delete objects that are not pointers
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(163,4): error C2311: 'overloaded function type': is caught by '...' on line 159
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(167,4): error C2065: 'Bouquets': undeclared identifier
+C:\Users\User\Desktop\Team-Work\AutoWash2\AutoWash\AutoWash\mainWindow.h(167,23): error C2065: 'Bouquet': undeclared identifier
+  ServiceType.cpp
+  Worker.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generating Code...

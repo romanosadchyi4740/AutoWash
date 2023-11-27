@@ -27,9 +27,18 @@
     <ClCompile Include="ServiceType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Owner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+<<<<<<< HEAD
+    <ClCompile Include="Worker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+=======
+>>>>>>> bc29a54c5c66eb1025c15033e70e68f206523bd6
+>>>>>>> 9343c459e8c0ca308fc2177e63d49eec8124f060
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainWindow.h">
@@ -41,10 +50,23 @@
     <ClInclude Include="calculateWorkerSalary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Worker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Workers.h">
+=======
     <ClInclude Include="ServiceType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Service.h">
+>>>>>>> bc29a54c5c66eb1025c15033e70e68f206523bd6
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Owner.h">

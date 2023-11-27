@@ -1,4 +1,11 @@
 #pragma once
+#include <iostream>
+#include <fstream>
+#include <iostream>
+#include "Workers.h"
+#include <msclr/marshal_cppstd.h>
+
+extern std::vector<Worker> Workers;
 
 namespace AutoWash {
 
@@ -39,6 +46,7 @@ namespace AutoWash {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 	private:
 		/// <summary>
@@ -57,6 +65,7 @@ namespace AutoWash {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->SuspendLayout();
 			// 
 			// button2
@@ -65,10 +74,9 @@ namespace AutoWash {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(43, 169);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button2->Location = System::Drawing::Point(32, 137);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(179, 71);
+			this->button2->Size = System::Drawing::Size(134, 58);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Обчислити дохід";
 			this->button2->UseVisualStyleBackColor = false;
@@ -79,10 +87,9 @@ namespace AutoWash {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button3->Location = System::Drawing::Point(43, 39);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button3->Location = System::Drawing::Point(32, 32);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(179, 71);
+			this->button3->Size = System::Drawing::Size(134, 58);
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"Додати послугу";
 			this->button3->UseVisualStyleBackColor = false;
@@ -93,10 +100,9 @@ namespace AutoWash {
 				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(291, 39);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->button1->Location = System::Drawing::Point(218, 32);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(179, 71);
+			this->button1->Size = System::Drawing::Size(134, 58);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Обчислити зарплату";
 			this->button1->UseVisualStyleBackColor = false;
@@ -106,32 +112,50 @@ namespace AutoWash {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(264, 192);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(198, 156);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(72, 25);
+			this->label1->Size = System::Drawing::Size(55, 20);
 			this->label1->TabIndex = 5;
 			this->label1->Text = L"Дохід:";
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
+			// 
 			// MainWindow
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->ClientSize = System::Drawing::Size(511, 272);
+			this->ClientSize = System::Drawing::Size(383, 221);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"MainWindow";
 			this->Text = L"CarWash";
+			this->Load += gcnew System::EventHandler(this, &MainWindow::MainWindow_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 
-	};
+	private: System::Void MainWindow_Load(System::Object^ sender, System::EventArgs^ e) {
+		String^ FileName = "";
+		if (openFileDialog1->ShowDialog() == Windows::Forms::DialogResult::OK)
+		{
+			FileName = openFileDialog1->FileName;   
+		}
+		std::string tempfile = msclr::interop::marshal_as<std::string>(FileName);
+		std::ifstream file(tempfile.c_str());
+		while (!file.eof()) {
+			std::string InputString;
+			getline(file, InputString);
+			Worker* worker = new Worker(InputString); 
+			Workers.push_back(*worker); 
+		}
+	}
+};
 }
