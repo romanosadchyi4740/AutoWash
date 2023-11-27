@@ -1,0 +1,5 @@
+enum Service {
+	EXTERIOR_WASH,
+	INTERIOR_WASH,
+	CHEMICAL_CLEANING
+};
