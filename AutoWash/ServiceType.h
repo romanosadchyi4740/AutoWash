@@ -8,7 +8,7 @@ private:
 public:
 	ServiceType();
 
-	ServiceType(Service service, int cost);
+	ServiceType(Service service);
 
 	~ServiceType();
 

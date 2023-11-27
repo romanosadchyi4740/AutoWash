@@ -27,6 +27,9 @@
     <ClCompile Include="ServiceType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Owner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mainWindow.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Owner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

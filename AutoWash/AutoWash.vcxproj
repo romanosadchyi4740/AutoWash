@@ -29,6 +29,7 @@
     <ClCompile Include="addService.cpp" />
     <ClCompile Include="calculateWorkerSalary.cpp" />
     <ClCompile Include="mainWindow.cpp" />
+    <ClCompile Include="Owner.cpp" />
     <ClCompile Include="ServiceType.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +42,7 @@
     <ClInclude Include="mainWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Owner.h" />
     <ClInclude Include="Service.h" />
     <ClInclude Include="ServiceType.h" />
   </ItemGroup>

@@ -4,10 +4,18 @@ ServiceType::ServiceType()
 {
 }
 
-ServiceType::ServiceType(Service service, int cost)
+ServiceType::ServiceType(Service service)
 {
 	this->service = service;
-	this->cost = cost;
+
+	switch (service) {
+	case EXTERIOR_WASH:
+		this->cost = 250;
+	case INTERIOR_WASH:
+		this->cost = 350;
+	case CHEMICAL_CLEANING:
+		this->cost = 1800;
+	}
 }
 
 ServiceType::~ServiceType()
